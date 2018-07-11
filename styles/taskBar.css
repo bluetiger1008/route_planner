@@ -1,0 +1,197 @@
+html, body, h1, h2, h3, h4, h5, h6, p, img, ol, ul, li, form, table, tr, th, td {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /*font-family: Arial,Helvetica,Sans-Serif;*/
+  font-size: 13px;
+}
+
+html {
+  background-color: #fff;
+}
+
+#allmap {
+  width: 100vw;
+  height: 100vh;
+}
+
+.taskBar {
+  min-width: 768px;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 1001;
+  top: auto;
+  left: 0;
+  background: rgba(255,255,255,.95);
+}
+
+  .taskBar > ul {
+      float: left;
+  }
+
+      .taskBar > ul li.sbElement {
+          margin: 16px 0;
+          height: 40px;
+          border: none;
+      }
+
+      .taskBar > ul > li {
+          float: left;
+      }
+
+  .taskBar a.trafficIcon.selected {
+      background-color: #f2f2f2 !important;
+      text-decoration: none;
+  }
+
+  .taskBar .b_logoArea {
+      display: block;
+      width: 210px;
+      height: 40px;
+      margin-left: 10px;
+  }
+
+  .taskBar .b_taskLogo {
+      background: url('../img/routeonlineplanner logo.png') no-repeat;
+      background-size: 200px;
+      height:36px;
+  }
+
+.b_logo {
+  font-family: Arial,Helvetica;
+  /*text-indent: -999px;*/
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+  /**/
+  text-align: left;
+  margin-top: 2px;
+  vertical-align: top;
+}
+
+.taskBar > ul li.inputbox {
+  margin: 16px 10px 0 0;
+  width: 560px;
+  height: 40px;
+  display: inline;
+}
+
+  .taskBar > ul li.inputbox #search_container {
+      display: inline;
+  }
+
+.taskBar .searchbox {
+  background-color: #fff;
+  border-right: none;
+  height: 40px;
+  border: none;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -moz-box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 2px 4px 0 rgba(0,0,0,.16);
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
+}
+
+.taskBar > ul li.inputbox input {
+  font-size: 18px;
+  font-family: 'Segoe UI',Arial,Helvetica,Sans-Serif;
+  outline: none;
+  margin: 0 0 0 11px;
+  padding: 0;
+  border: 0;
+  height: 100%;
+  width: auto;
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+}
+
+.taskBar > ul li div.searchButton {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  float: right;
+  display: inline-flex;
+  flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+}
+
+.taskBar > ul li a.searchIcon {
+  display: inline-block;
+  width: 20px;
+  height: 25px;
+  background: url(../img/SharedSpriteDesktopTwoToneLogoTealSpy_022118.png) -121px 1px no-repeat;
+  padding: 9px 10px;
+  background-clip: content-box;
+  background-origin: content-box;
+  -moz-background-clip: content-box;
+  -moz-background-origin: content-box;
+  -webkit-background-clip: content-box;
+  -webkit-background-origin: content-box;
+}
+
+.taskBar .actions {
+  height: 50px;
+  margin: 10px 0 0 5px;
+}
+
+.taskBar a.directionsIcon, .taskBar a.directionsIcon:hover, .taskBar a.directionsIcon:active {
+  background-image: url('../svg/Directions.svg');
+}
+
+.taskBar a.trafficIcon, .taskBar a.trafficIcon:hover, .taskBar a.trafficIcon:active {
+  background-image: url('../svg/Traffic.svg');
+}
+
+.taskBar a.placesIcon, .taskBar a.placesIcon:hover, .taskBar a.placesIcon:active {
+  background-image: url('../svg/Place.svg');
+}
+
+.taskBar a.directionsIcon, .taskBar a.placesIcon, .taskBar a.trafficIcon, .taskBar a.moreIcon, .taskBar a.directionsIcon, .taskBar a.fullScreenIcon, .taskBar a.shareIcon {
+  background-size: 20px 20px;
+}
+
+.taskBar a.realign {
+  padding: 32px 5px 10px 5px !important;
+  background-position: center 12px !important;
+  font-weight: 400;
+  min-width: 42px;
+}
+
+.taskBar .action a {
+  height: 50px;
+  display: inline-block;
+  padding: 16px 10px 16px 36px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #666 !important;
+  font-family: 'Segoe UI',Helvetica,Arial,Sans-Serif;
+  margin: 2px 0 0;
+  font-size: 11px !important;
+}
+
+  .taskBar .action a.realign .actionLabel {
+      padding: 0 6px;
+  }
+
+  .action a:hover, .taskBar .action a:active, .taskBar a.shareIcon.pressed, .taskBar a.trafficIcon.selected, .taskBar a.moreIcon.selected, .taskBar a.fullScreenIcon.selected {
+      background-color: #f2f2f2 !important;
+      text-decoration: none;
+      color: #000;
+  }

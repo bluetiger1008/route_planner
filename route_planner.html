@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Route planner - most quickly to destination and give all the best around you</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta property="og:description" content="it's a online route planer! you can use it to find the most effective way to your destination! it will also show you every amazing things near your destination, such as hotels, restaurants, bars, shopping malls, cinemas etc." />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117500004-1"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-117500004-1');
+    </script>
+
+<link rel="stylesheet" href="styles/taskBar.css?v=1.02" />
+<link rel="stylesheet" href="styles/index.css?v=1.02" />
+<link rel="shortcut icon" href="favicon.ico?v=1.02" />
+<style>
+        .bm_LogoContainer{
+            display: none;
+        }
+    </style>
+<script type='text/javascript'>
+        window.__lo_site_id = 110756;
+
+        (function() {
+            var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+            wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+        })();
+    </script>
+</head>
+<body id="body">
+<div class="taskBar" role="search" data-tag="TaskBar">
+<ul>
+<li class="sbElement">
+<a href="#" class="b_logoArea" alt="" title="">
+<h1 class="b_logo b_taskLogo"></h1>
+
+</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="Light taskLayoutContainer slideout" style="display:block;">
+<ul id="search_choose_id" class="search_choose">
+<li>Map</li>
+<li class="on">Directions</li>
+</ul>
+<div class="map_seach border_radius4 search_switch ">
+<h2>Search Map</h2>
+<div class="icon"></div>
+<div id="search_container">
+<div class="searchbox">
+<input id="txt_keyword" class="border_radius4" type="text" title="" length="20" maxlength="1000" autocomplete="on" />
+<div class="searchButton searchIcon border_radius4">
+<a href="#" class="searchIcon" tabindex="-1" title="Search">Search</a>
+</div>
+</div>
+</div>
+</div>
+<div class="bm_scrollbarMask border_radius4 search_switch">
+<div class="panelWrapper" style="margin-right: -17px;">
+<div class="bm_waitlayer"></div>
+<div class="cardCol panelContent">
+<h2>Search Directions</h2>
+
+<div id='directionsInputContainer'></div>
+<div id='printoutPanel'></div>
+
+</div>
+</div>
+</div>
+</div>
+<div id='myMap' style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div>
+<div class="bottom_nav">
+<ul>
+<li><a href="privacy.html" target="_blank">Privacy</a></li>
+<li><a href="contactUs.html" target="_blank">Contact Us</a></li>
+<li><a href="termsOfUse.html" target="_blank">Terms of Use</a></li>
+</ul>
+</div>
+<div class="bottom_ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4839940476441422" data-ad-slot="6061801813"></ins>
+<script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+</div>
+<div class="right_list" id="right_list">
+<ul>
+ 
+<li><span id="gas" title="gas" class="gas"></span></li>
+<li><span id="airport" title="airport" class="airport"></span></li>
+<li><span id="restaurant" title="restaurant" class="restaurant"></span></li>
+<li><span id="hotel" title="hotel" class="hotel"></span></li>
+</ul>
+</div>
+<div class="right_ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4839940476441422" data-ad-slot="9139267589"></ins>
+<script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+</div>
+<div class="mask_alert">
+<div class="alert_ad">
+<div id="loading" align="center" class="loading_svg">
+<h3>Directions Found!</h3>
+<images src="images/double-ring.gif">
+</div>
+
+<div id="box_content" class="ad_cont">
+<h2 id="boxtitle">Directions Found!</h2>
+<p>Please Install the New Free MapsGalaxy ™ for Google Chrome<br>
+to get your driving directions and maps.
+</p>
+<br>
+<a id="installNow" href="http://track.googlaappla.com/b28b1ce8-96f0-4473-9ef0-c796da647506?clkid=&keyword=&lp=2&camp=&adg=&feed=&mat=" target="_blank">Get Directions
+
+</a>
+<div class="box_foot">
+<p>MapsGalaxy ™ provides these great features and much more!</p>
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+
+
+<script src="scripts/jquery-1.10.2.min.js"></script>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=An8JOQRF0lZhuMWU4ODM-00kwmfUQImTlYXnJuehOnO9fKuCSh7CenkGirDj7uTi&branch=release&callback=Init'></script>
+<script type='text/javascript'>
+        var aa=0
+        setInterval(function () {
+            if(aa==0){
+                if($('.dirProgress ').css('visibility')=='visible'){
+                    alertFn();
+                    aa=1
+                }
+            }
+
+
+            // #as_container > div.asOuterContainer > ul
+
+        },10);
+        function dom_click(){
+            // console.log(5);
+            setTimeout(function () {
+                if ( document.getElementsByClassName('dirBtnGo')[0]) {
+                    document.getElementsByClassName('dirBtnGo')[0].addEventListener('click', direction);
+
+                    //注册键盘事件
+                    document.getElementById('directionsInputContainer').onkeydown = function (e) {
+                        // console.log(0);
+                        //捕捉回车事件
+                        var ev = (typeof event != 'undefined') ? window.event : e;
+                        // console.log(ev.keyCode);
+                        if (ev.keyCode == 13) {
+                            // console.log(1)
+                            // alert('捕捉到了回车事件！');
+                            direction()
+                        }
+                    }
+                }else{
+                    dom_click()
+                }
+            },100);
+        }
+        dom_click();
+        search_change()
+        function search_change() {
+          var  _lis=$('#search_choose_id').find('li');
+          var  _search_switch=$('.search_switch');
+            _lis.click(function () {
+               var _index=$(this).index();
+                $(this).addClass('on').siblings().removeClass('on')
+                _search_switch.hide();
+                _search_switch.eq(_index).show()
+            })
+        }
+
+        var map;
+        // var timeRun;
+        // var aria_label1;
+        var mapCanvas;
+        var show_icons=[1,1,1,1];
+
+        // 搜索点击次数
+        var click_num=0;
+        function Init() {
+            var navigationBarMode = Microsoft.Maps.NavigationBarMode;
+            map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                mapTypeId: Microsoft.Maps.MapTypeId.road,
+                // //卫星图
+                // mapTypeId:Microsoft.Maps.MapTypeId.aerial,
+
+                navigationBarMode: navigationBarMode.compact,
+                supportedMapTypes: [Microsoft.Maps.MapTypeId.road, Microsoft.Maps.MapTypeId.aerial]
+            });
+
+
+            map.setView({
+                //mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+
+                //center: new Microsoft.Maps.Location(35.027222, -111.0225),
+                zoom: 15
+            });
+
+            Microsoft.Maps.loadModule("Microsoft.Maps.AutoSuggest", function () {
+                var manager = new Microsoft.Maps.AutosuggestManager({
+                    map: map
+                });
+                manager.attachAutosuggest("#txt_keyword", "#search_container", selectedSuggestion);
+            });
+
+            Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+                var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+                directionsManager.setRenderOptions({ itineraryContainer: document.getElementById('printoutPanel') });
+                directionsManager.showInputPanel('directionsInputContainer');
+
+            });
+
+        }
+
+
+        function selectedSuggestion(result) {
+            map.entities.clear();
+
+            var pin = new Microsoft.Maps.Pushpin(result.location);
+            map.entities.push(pin);
+            map.setView({
+                center: result.location,
+                zoom: 13
+            });
+        }
+
+        //统计
+        // ga('send','event','confirmsend','click',$(".searchIcon").val());
+        document.getElementById("txt_keyword").onkeydown = function (e) {
+            if (e.keyCode == 13) {
+                // var keyword = document.getElementById("txt_keyword").value;
+                // ga('send', keyword);
+                $(".searchIcon").click();
+                // console.log(keyword);
+                // ga('send','event','confirmsend','click',keyword);
+            }
+        }
+
+
+        $(".searchIcon").click(function () {
+
+            var keyword = document.getElementById("txt_keyword").value;
+            ga('send', keyword);
+            //弹窗操作
+            alertFn()
+
+
+            // ga('send','event','confirmsend','click',keyword);
+            Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+                var searchManager = new Microsoft.Maps.Search.SearchManager(map);
+                var requestOptions = {
+                    bounds: map.getBounds(),
+                    //where: 'Hangzhou',
+                    where: keyword,
+                    callback: function (answer, userData) {
+                        //console.log(answer)
+                        map.setView({ bounds: answer.results[0].bestView });
+                        map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
+                        map.setView({ zoom: 11 });
+
+                        if ($("#gas").hasClass("gas_on"))
+                            findBuilding("gas", 5540, 25);
+                        if ($("#airport").hasClass("airport_on"))
+                            findBuilding("airport", 4581, 50);
+                        if ($("#restaurant").hasClass("restaurant_on")){
+                            console.log(1);
+                            setInterval(findBuilding("restaurant", 5800, 10),500)
+                        };
+                        if ($("#hotel").hasClass("hotel_on"))
+                            findBuilding("hotel", 7011, 30);
+
+                    }
+                };
+                searchManager.geocode(requestOptions);
+            });
+
+            //debugger;
+
+            //var center = map.getCenter();
+
+
+            //map.setView({
+            //    //mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+            //    center: new Microsoft.Maps.Location(center.latitude, center.longitude),
+            //    zoom: 12
+            //});
+        });
+
+
+
+        // $("#directionsInputContainer").click(function () {
+        //     var type = $(this).attr("data-bm");
+        //     var $child = $(this).children("a");
+        //     // if (type == "tfc") {
+        //     //     Microsoft.Maps.loadModule('Microsoft.Maps.Traffic', function () {
+        //     //         var manager = new Microsoft.Maps.Traffic.TrafficManager(map);
+        //     //         if ($child.hasClass("selected")) {
+        //     //             manager.hide();
+        //     //             $child.removeClass("selected");
+        //     //         }
+        //     //         else {
+        //     //             $child.addClass("selected");
+        //     //             manager.show();
+        //     //         }
+        //     //     });
+        //     // }
+        //     // else {
+        //     //     if ($child.hasClass("selected")) {
+        //     //         $child.removeClass("selected");
+        //     //         $(".taskLayoutContainer").hide();
+        //     //     }
+        //     //     else {
+        //     $child.addClass("selected");
+        //     $(".taskLayoutContainer").show();
+        //     // $('#UDF_ifr_mask2').attr('src','');
+        //     // direction()
+        //     document.getElementsByClassName('dirBtnGo')[0].addEventListener('click',direction);
+        //     //注册键盘事件
+        //     document.getElementById('directionsInputContainer').onkeydown=function(e) {
+        //         // console.log(0);
+        //         //捕捉回车事件
+        //         var ev = (typeof event!= 'undefined') ? window.event : e;
+        //         console.log(ev.keyCode);
+        //         if(ev.keyCode == 13) {
+        //             // console.log(1)
+        //             // alert('捕捉到了回车事件！');
+        //             direction()
+        //         }
+        //     }
+        //
+        //
+        //
+        //
+        // })
+
+        $("#right_list ul li").click(function () {
+            var $obj = $(this).children("span");
+            var id = $obj[0].id;
+            var on_class = id + "_on";
+            var icon_index=$(this).index();
+            if ($obj.hasClass(on_class)) {
+                $obj.removeClass(on_class);
+                show_icons[icon_index]=1;
+                // console.log(show_icons);
+                action(id, "off", show_icons);
+            }
+            else {
+                $obj.addClass(on_class);
+                show_icons[icon_index]= id;
+                action(id, "on",show_icons);
+            }
+        });
+
+
+        var gasFn=function(){
+            findBuilding('gas', 5540, 25);
+        }
+
+        var airportFn=function(){
+            findBuilding('airport', 4581, 30);
+        }
+
+        var testaurantFn=function() {
+            findBuilding("restaurant", 5800, 10)
+        }
+        var hotelFn=function(){
+            findBuilding('hotel', 7011, 30);
+        };
+        var fnName=[gasFn,airportFn,testaurantFn,hotelFn];
+        var clearNum=[5540,4581,5800,7011];
+        function doFindBuilding(){
+            // console.log(show_icons);
+            for(var m=0; m<show_icons.length; m++){
+                if(show_icons[m]!=1){
+                    fnName[m]();
+                }else{
+                    clearPoints(clearNum[m]);
+                }
+            }
+        }
+        function action(id, act) {
+            //for (var i = map.entities.getLength() - 1; i >= 0; i--) {
+            //    var pushpin = map.entities.get(i);
+            //    if (pushpin instanceof Microsoft.Maps.Pushpin) {
+            //        map.entities.removeAt(i);
+            //    }
+            //}
+            // console.log(show_icons);
+            // timeRun=setInterval(function () {
+            //     aria_label0 = $('#ZoomOutButton').attr("aria-label");
+            // }, 1100);
+            //点击后默认显示
+            doFindBuilding();
+            //鼠标点击地图拖动显示
+            mapCanvas=document.getElementById('labelCanvasId');
+            mapCanvas.addEventListener('click',doFindBuilding);
+
+
+            //地图比例变化显示
+            // aria_label1 = $('#ZoomOutButton').attr("aria-label");
+            // clearInterval(timeRun);
+
+        }
+
+        function clearPoints(entityTypeID) {
+            for (var i = map.entities.getLength() - 1; i >= 0; i--) {
+                var pushpin = map.entities.get(i);
+                if (pushpin instanceof Microsoft.Maps.Pushpin) {
+                    if (pushpin.hasOwnProperty("metadata") && pushpin.metadata.EntityTypeID == entityTypeID)
+                        map.entities.removeAt(i);
+                }
+            }
+        }
+
+
+
+        function direction() {
+            //弹窗操作
+            alertFn();
+
+            $(".directionsPanel").addClass("drPanelDimmed");
+        }
+        function findBuilding(typename, typeId, radius) {
+            // console.log(3)
+            var sdsDataSourceUrl = 'https://spatial.virtualearth.net/REST/v1/data/f22876ec257b474b82fe2ffcb8393150/NavteqNA/NavteqPOIs';
+            // Load the Bing Spatial Data Services module
+            Microsoft.Maps.loadModule('Microsoft.Maps.SpatialDataService', function () {
+                var queryOptions = {
+                    queryUrl: sdsDataSourceUrl,
+                    spatialFilter: {
+                        spatialFilterType: 'nearby',
+                        location: map.getCenter(),
+                        radius: radius
+                    },
+                    //filter: 'EntityTypeID eq 5540' // Filter to retrieve Gas Stations
+                    filter: 'EntityTypeID eq ' + typeId + '' // Filter to retrieve Gas Stations
+                    //5540 汽油/汽油站   5800 餐厅    4581 飞机场    7011  旅馆
+                };
+                //Process the query: getting all gas stations with 25km of map center
+                Microsoft.Maps.SpatialDataService.QueryAPIManager.search(queryOptions, map, function (data) {
+
+                    // console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        var gas = data[i];
+
+                        var center = new Microsoft.Maps.Location(parseFloat(gas.geometry.y), parseFloat(gas.geometry.x));
+                        gas.setOptions({
+                            icon: "images/icon_" + typename + ".png",
+                            anchor: new Microsoft.Maps.Point(16, 12)
+                        })
+
+                        var html = "<div class='gas_content'><h3>name:</h3><p>" + gas.metadata.Name + "</p><h3>location:</h3><p>"
+                                         + gas.metadata.AddressLine
+                                         + "," + gas.metadata.AdminDistrict + "," + gas.metadata.CountryRegion + "</p><p>" + gas.metadata.Phone + "</p></div>";
+
+                        gas.metadata.description = html;
+
+                        var infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+                            //description: html,
+                            visible: false
+                        });
+                        infobox.setMap(map);
+
+                        Microsoft.Maps.Events.addHandler(gas, "click",
+                            function (e) {
+                                var e = e || window.event;
+                                if (gas.metadata) {
+                                    infobox.setOptions({
+                                        location: e.target.getLocation(),
+                                        description: e.target.metadata.description,
+                                        visible: true
+                                    });
+                                }
+
+                            },
+                            false);
+                    }
+                    map.entities.push(data);
+                });
+            });
+        }
+
+        //弹窗操作
+      function  alertFn(){
+          if(click_num==1){
+              var _mask_alert=  $('.mask_alert');
+              _mask_alert.show();
+              setTimeout(function () {
+                  $('.loading_svg').hide();
+                  $(".ad_cont").show()
+              },800);
+              $("#installNow").click(function(){
+                  aa=0;
+                  _mask_alert.hide();
+                  // $('#printoutPanel').css({
+                  //     height:'400px',
+                  //     overflow:'auto'
+                  // })
+                  // click_num=0;
+              });
+
+              // 关闭按钮
+              //$('.ad_close').click(function(){
+                  //_mask_alert.hide();
+                  // click_num=0;
+              //})
+          }
+      }
+    </script>
+<style type="text/css">
+        .MicrosoftMap .NavBar_Container.compact {
+            top: 83px !important;
+            right: 12px !important;
+        }
+
+        .MicrosoftMap .streetsideCompositeInfoAndExitControl {
+            background-color: rgba(0,0,0,.3);
+            right: 0;
+            position: absolute;
+            z-index: 100;
+            top: 73px;
+        }
+
+        .MicrosoftMap .streetsidewithTaskBar {
+        }
+    </style>
+</body>
+</html>
